@@ -1,15 +1,18 @@
 /*
  * Calls function fn for each element of array
  * */
-function each(fn) {
+function each(items, fn) {
+
 }
 
 function eachTest() {
-  [1, 2, 3].each(function (i) {
+  const ints = [1, 2, 3];
+  each(ints, function (i) {
     console.log(i);
   }); // => logs on console: 1, 2, 3
 
-  ['Bob', 'Kate'].each(function (name) {
+  const names = ['Bob', 'Kate'];
+  each(names, function (name, index) {
     console.log(name);
   }); // => logs on console: 'Bob', 'Kate'
 }
@@ -19,7 +22,7 @@ function eachTest() {
 /*
  * Maps each array element, using function fn
  * */
-function map(array, fn) {
+function map(items, fn) {
 }
 
 function testMap() {
@@ -61,7 +64,7 @@ function testFilter() {
 }
 
 // TODO: all
-function all(list, test) {
+function all(items, predicateFn) {
   return false;
 }
 
@@ -94,8 +97,8 @@ function testMerge() {
 }
 
 // TODO: reduce
-function reduce(list, accumulatorFn, startValue) {
-  return [];
+function reduce(items, accumulatorFn, startValue) {
+  return null;
 }
 
 function testReduce() {
@@ -106,7 +109,7 @@ function testReduce() {
   console.log('reduce 1:', reduce([2, 5, 7], sumFn, -4));
 
   const mergeFn = function (memo, item, index, list) {
-    return merge(memo, item);
+    return memo.push(item.name);
   };
   // should return => {name: 'bob', age: 12, sex: 'M'}
   const objs = [{ name: 'bob' }, { age: 12 }, { sex: 'M' }];
