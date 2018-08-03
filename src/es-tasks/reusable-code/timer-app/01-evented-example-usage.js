@@ -3,13 +3,9 @@ import { Evented } from './src/Evented';
 export function eventedExampleUsageApp() {
   const bob = new Evented();
   const other = new Evented();
-  const eventName = 'xxx:yyy';
-  const listener = function (...params) {
-    console.log('1st listener triggered', params);
-  };
 
   bob.on('click', function (int, str) {
-    console.log('costam');
+    console.log('costam', int, str);
   });
 
   bob.on('click', function (int, str) {
@@ -18,13 +14,20 @@ export function eventedExampleUsageApp() {
 
 
   bob.trigger('click', [123, 'qq']);
-  other.trigger('click'); // happens
+  other.trigger('click'); // nothing happens
 
   bob.off('click');
   bob.trigger('click', [123, 'qq']); // nothing happens
 
 
+
+
   // assign many listeners to single event
+  const eventName = 'xxx:yyy';
+  const listener = function (...params) {
+    console.log('1st listener triggered', params);
+  };
+
   bob.on(eventName, listener);
   bob.on(eventName, function (...params) {
     console.log('2nd listener triggered...', params);
