@@ -3,6 +3,10 @@
 /* eslint-disable guard-for-in */
 /* eslint-disable no-use-before-define */
 
+// splice(startIndex, removeCount, objToInsert1, objToInsert2, ...)
+// slice
+
+
 // mutator
 function insertAt(array, index, object) {
 }
@@ -10,7 +14,7 @@ function insertAt(array, index, object) {
 function testInsertAt() {
   let names = ['bob', 'ed', 'joe'];
   names = insertAt(names, 1, 'XXX');
-  console.log('testInsertAt', names);
+  console.log('testInsertAt', names); // ['bob', 'XXX', 'ed', 'joe']
 }
 
 // mutator
